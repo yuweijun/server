@@ -46,14 +46,12 @@ lsmod | grep bbr
 
 ## nginx
 
-cp nginx/default.conf /etc/nginx/sites-available/default
 systemctl restart nginx.service
 
 ## shadowsocks
 
-### should update config.json using ip
+### should update config.json using ip in /etc/shadowsocks/config.json
 
-cp shadowsocks/config.json /etc/shadowsocks/config.json
 systemctl restart shadowsocks.service
 
 ## sites
