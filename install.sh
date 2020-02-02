@@ -5,10 +5,12 @@ timedatectl set-timezone Asia/Shanghai
 apt update
 apt install -y git shadowsocks nginx imagemagick nodejs npm rsync zsh make
 
-mkdir /data
+if [ ! -d /data ]; then
+    mkdir /data
+fi
 
 if [ $# -eq 0 ]; then
-    rsync -av -e ssh root@4e00.com:/root/ /root/
+    rsync -av --exclude '.ssh/known_hosts' -e ssh root@4e00.com:/root/ /root/
     rsync -av -e ssh root@4e00.com:/data/ /data/
     rsync -av -e ssh root@4e00.com:/etc/nginx/ /etc/nginx/
     rsync -av -e ssh root@4e00.com:/etc/shadowsocks/ /etc/shadowsocks/
