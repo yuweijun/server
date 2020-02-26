@@ -10,6 +10,7 @@ if [ ! -d /data ]; then
 fi
 
 if [ $# -eq 0 ]; then
+    ssh-copy-id root@4e00.com
     rsync -av --exclude '.ssh/known_hosts' -e ssh root@4e00.com:/root/ /root/
     rsync -av -e ssh root@4e00.com:/data/ /data/
     rsync -av -e ssh root@4e00.com:/etc/nginx/ /etc/nginx/
