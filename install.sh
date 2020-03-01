@@ -13,7 +13,7 @@ if [ ! -d /data ]; then
 fi
 
 if [ $# -eq 0 ]; then
-    rsync -av --exclude '.ssh/known_hosts' -e ssh root@4e00.com:/root/ /root/
+    rsync -av --exclude '.ssh' -e ssh root@4e00.com:/root/ /root/
     rsync -av -e ssh root@4e00.com:/data/ /data/
     rsync -av -e ssh root@4e00.com:/etc/nginx/ /etc/nginx/
     rsync -av -e ssh root@4e00.com:/etc/shadowsocks/ /etc/shadowsocks/
