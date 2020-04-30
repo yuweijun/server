@@ -6,7 +6,7 @@ ssh-copy-id root@4e00.com
 timedatectl set-timezone Asia/Shanghai
 
 apt update
-apt install -y git shadowsocks nginx imagemagick nodejs npm rsync zsh make
+apt install -y git shadowsocks-libev nginx imagemagick nodejs npm rsync zsh make
 
 if [ ! -d /data ]; then
     mkdir /data
@@ -43,11 +43,6 @@ git config --global color.status.changed green
 git config --global color.status.untracked cyan
 git config --global log.date iso
 git config --global alias.ll "log --pretty=format:'%C(yellow)%h %C(green)| %C(white)%ad %C(green)| %C(blue)%>(15,trunc)%an %C(green)| %C(green)%d %C(reset)%s'"
-
-## BBR
-
-apt install -y --install-recommends linux-generic-hwe-18.04
-lsmod | grep bbr
 
 ## nginx
 
