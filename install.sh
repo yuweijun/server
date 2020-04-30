@@ -13,10 +13,10 @@ if [ ! -d /data ]; then
 fi
 
 if [ $# -eq 0 ]; then
-    rsync -av --exclude '.ssh' -e ssh root@4e00.com:/root/ /root/
+    rsync -av --exclude 'known_hosts' -e ssh root@4e00.com:/root/ /root/
     rsync -av -e ssh root@4e00.com:/data/ /data/
     rsync -av -e ssh root@4e00.com:/etc/nginx/ /etc/nginx/
-    rsync -av -e ssh root@4e00.com:/etc/shadowsocks/ /etc/shadowsocks/
+    rsync -av -e ssh root@4e00.com:/etc/shadowsocks-libev/ /etc/shadowsocks-libev/
 fi
 
 ## git config
@@ -48,11 +48,11 @@ git config --global alias.ll "log --pretty=format:'%C(yellow)%h %C(green)| %C(wh
 
 systemctl restart nginx.service
 
-## shadowsocks
+## shadowsocks-libev
 
-### should update config.json using ip in /etc/shadowsocks/config.json
+### should update config.json using ip in /etc/shadowsocks-libev/config.json
 
-systemctl restart shadowsocks.service
+systemctl restart shadowsocks-libev.service
 
 ## sites
 
